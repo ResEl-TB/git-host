@@ -12,6 +12,8 @@ RUN wget "$(wget -nv https://github.com/takezoe/gitbucket/releases/latest/ -O /d
 
 RUN adduser --quiet --shell /bin/false --disabled-login --home /home/git git 
 
+ADD scripts/start-gitbucket.sh /opt/start-gitbucket.sh
+
 VOLUME /home/git
 
 # Port for web page
@@ -22,4 +24,4 @@ EXPOSE 22
 #Need to figure out why the /home/git doesn't belong to git
 #USER git
 
-CMD ["java", "-jar", "/opt/gitbucket.war", "--gitbucket.home=/home/git", "--port=80", "--prefix=/"] 
+CMD ["/bin/sh", "/opt/start-gitbucket.sh"] 
