@@ -17,7 +17,7 @@ Note : l'utilisateur par défaut est root:root après un fresh install
 docker start git-host
 ```
 ## Mise à jour
-1. Effectuer les modifications dans le dossier web-proxy/.
+1. Effectuer les modifications dans le dossier git-host/.
 2. Re-construire, et tester le conteneur:  
 `docker build -t resel-tb/git-host . && docker run --rm -t -v /bckp/dir:/home/git resel-tb/git-host`.
 3. Si fonctionnel, commiter et pusher les modifications: `git commit -am 'DESCRIPTION' && git push`.
